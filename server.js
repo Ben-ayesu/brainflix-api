@@ -1,7 +1,14 @@
 require("dotenv").config();
-const { PORT, BACKEND_URL } = process.env;
 const express = require("express");
 const app = express();
+const cors = require("cars");
+const videoRoutes = require("./routes/videosRoutes");
+const { PORT, BACKEND_URL } = process.env;
+
+app.use(express.json());
+app.use(express.static("public"));
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Welcome to brainflix");
