@@ -4,7 +4,8 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
 router.get("/", (req, res) => {
-  res.send("Hello Video Benjamin");
+  const videos = JSON.parse(fs.readFileSync("./data/videos.json"));
+  res.send(videos);
 });
 
 // Gets all videos
@@ -13,7 +14,7 @@ router.get("/videos", (req, res) => {
   res.send(videos);
 });
 
-// Gets a videos
+// Gets a video
 router.get("/videos/:id", (req, res) => {
   const videos = JSON.parse(fs.readFileSync("./data/videos.json"));
   const findVideo = videos.find((video) => video.id === req.params.id);
