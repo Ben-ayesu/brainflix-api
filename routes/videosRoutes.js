@@ -28,7 +28,7 @@ router.post("/videos", (req, res) => {
     id: uuidv4(),
     title: title,
     description: description,
-    image: image || "../images/image01",
+    image: image || "../images/image1",
     views: "0",
     likes: "0",
     duration: "0:00",
