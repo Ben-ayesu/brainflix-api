@@ -38,10 +38,10 @@ router.post("/videos", (req, res) => {
   };
 
   try {
-    const data = fs.readFileSync("../data/videos.json");
+    const data = fs.readFileSync("./data/videos.json");
     const videos = JSON.parse(data);
     videos.push(newVideo);
-    fs.writeFileSync("../data/videos.json", JSON.stringify(videos));
+    fs.writeFileSync("./data/videos.json", JSON.stringify(videos));
     res.status(201).json(newVideo);
   } catch (error) {
     console.log("error posting new videos", error);
